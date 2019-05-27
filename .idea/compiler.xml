@@ -10,5 +10,8 @@
         <module name="oauth2-sso-server" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="auth2-sso-server2" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

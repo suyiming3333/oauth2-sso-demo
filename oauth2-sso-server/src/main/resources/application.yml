@@ -7,3 +7,9 @@ spring:
   thymeleaf:
     suffix: .html
     prefix: classpath:/templates/
+logging:
+  config: classpath:logback.xml
+  level:
+    com:
+      sym:
+        oauth2ssoserver: debug
