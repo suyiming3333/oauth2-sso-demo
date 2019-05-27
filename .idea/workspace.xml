@@ -1,66 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d0de64a-d7c7-4cf8-9261-3b0f4ed24633" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/controller/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/css/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/css/bootstrap-grid.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/css/bootstrap-grid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/css/bootstrap-grid.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/css/bootstrap-reboot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/css/bootstrap-reboot.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/css/bootstrap-reboot.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/js/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/js/bootstrap.bundle.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/js/bootstrap.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/bootstrap-4.3.1-dist/js/bootstrap.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/css/normalize.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/css/style.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/fonts/Pe-icon-7-stroke.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/fonts/Pe-icon-7-stroke.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/fonts/Pe-icon-7-stroke.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/fonts/icomoon/icomoon.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/fonts/icomoon/icomoon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/fonts/icomoon/icomoon.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/fonts/icomoon/icomoon.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/fonts/icomoon/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/fonts/themify.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/fonts/themify.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/fonts/themify.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/fonts/themify.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/js/jquery-2.1.4.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/assets/js/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/static/images/dashboard/circle.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/AuthorizationServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/AuthorizationServerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/application.yml" afterDir="false" />
-    </list>
+    <list default="true" id="4d0de64a-d7c7-4cf8-9261-3b0f4ed24633" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/oauth2-sso-server/target/" />
@@ -378,7 +319,7 @@
               <item name="oauth2-sso-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="myssowithoauth" type="b2602c69:ProjectViewProjectNode" />
@@ -386,69 +327,8 @@
               <item name="oauth2-sso-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="oauth2ssoserver" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myssowithoauth" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myssowithoauth" type="462c0819:PsiDirectoryNode" />
-              <item name="oauth2-sso-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="oauth2ssoserver" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myssowithoauth" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myssowithoauth" type="462c0819:PsiDirectoryNode" />
-              <item name="oauth2-sso-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="oauth2ssoserver" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myssowithoauth" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="myssowithoauth" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework.security:spring-security-core:5.1.5.RELEASE" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="myssowithoauth" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework.security:spring-security-core:5.1.5.RELEASE" type="70bed36:NamedLibraryElementNode" />
-              <item name="spring-security-core-5.1.5.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myssowithoauth" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework.security:spring-security-web:5.1.5.RELEASE" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="myssowithoauth" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework.security:spring-security-web:5.1.5.RELEASE" type="70bed36:NamedLibraryElementNode" />
-              <item name="spring-security-web-5.1.5.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myssowithoauth" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework.security:spring-security-web:5.1.5.RELEASE" type="70bed36:NamedLibraryElementNode" />
-              <item name="spring-security-web-5.1.5.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myssowithoauth" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework.security:spring-security-web:5.1.5.RELEASE" type="70bed36:NamedLibraryElementNode" />
-              <item name="spring-security-web-5.1.5.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="authentication" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="sql" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -464,7 +344,7 @@
     <property name="SearchEverywhereHistoryKey" value="login&#9;PSI&#9;JAVA://org.springframework.security.web.server.ui.LoginPageGeneratingWebFilter&#10;TokenEndpo&#9;FILE&#9;jar://D:/maven_repo/org/springframework/security/oauth/spring-security-oauth2/2.3.4.RELEASE/spring-security-oauth2-2.3.4.RELEASE.jar!/org/springframework/security/oauth2/provider/client/ClientCredentialsTokenEndpointFilter.class&#10;DefaultTokenServices.class&#9;FILE&#9;jar://D:/maven_repo/org/springframework/security/oauth/spring-security-oauth2/2.3.4.RELEASE/spring-security-oauth2-2.3.4.RELEASE.jar!/org/springframework/security/oauth2/provider/token/DefaultTokenServices.class" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558971791214" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558971837357" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -521,18 +401,18 @@
       <workItem from="1558019705102" duration="2635000" />
       <workItem from="1558156530625" duration="10312000" />
       <workItem from="1558444153223" duration="8874000" />
-      <workItem from="1558966125720" duration="5643000" />
+      <workItem from="1558966125720" duration="6280000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32602000" />
+    <option name="totallyTimeSpent" value="33239000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.499002" visible="true" weight="0.19969743" />
-      <window_info id="Structure" order="1" sideWeight="0.500998" side_tool="true" visible="true" weight="0.19969743" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.90618765" visible="true" weight="0.30257186" />
+      <window_info id="Structure" order="1" sideWeight="0.093812376" side_tool="true" visible="true" weight="0.30257186" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -542,7 +422,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.19193548" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.19193548" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
