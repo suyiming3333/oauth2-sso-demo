@@ -60,49 +60,49 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .redirectUris("http://www.baidu.com");  */
     }
 
-    @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints.authenticationManager(authenticationManager);
-    }
-
-
-    @Bean
-    public TokenStore tokenStore(){
-        return new InMemoryTokenStore();
-    }
-
-    @Primary
-    @Bean
-    public DefaultTokenServices defaultTokenServices(){
-        DefaultTokenServices tokenServices = new DefaultTokenServices();
-        tokenServices.setTokenStore(tokenStore());
-        tokenServices.setSupportRefreshToken(true);
-        //tokenServices.setClientDetailsService(clientDetails());
-        tokenServices.setAccessTokenValiditySeconds(60*60*12); // token有效期自定义设置，默认12小时
-        tokenServices.setRefreshTokenValiditySeconds(60 * 60 * 24 * 7);//默认30天，这里修改
-        return tokenServices;
-    }
-
-
 //    @Override
 //    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-//        //配置授权服务端点
-//        endpoints.accessTokenConverter(jwtAccessTokenConverter());
-//        endpoints.tokenStore(jwtTokenStore());
+//        endpoints.authenticationManager(authenticationManager);
+//    }
+
+
+//    @Bean
+//    public TokenStore tokenStore(){
+//        return new InMemoryTokenStore();
 //    }
 //
+//    @Primary
 //    @Bean
-//    public JwtTokenStore jwtTokenStore() {
-//        //定义tokenStore类型
-//        return new JwtTokenStore(jwtAccessTokenConverter());
+//    public DefaultTokenServices defaultTokenServices(){
+//        DefaultTokenServices tokenServices = new DefaultTokenServices();
+//        tokenServices.setTokenStore(tokenStore());
+//        tokenServices.setSupportRefreshToken(true);
+//        //tokenServices.setClientDetailsService(clientDetails());
+//        tokenServices.setAccessTokenValiditySeconds(60*60*12); // token有效期自定义设置，默认12小时
+//        tokenServices.setRefreshTokenValiditySeconds(60 * 60 * 24 * 7);//默认30天，这里修改
+//        return tokenServices;
 //    }
-//
-//    @Bean
-//    public JwtAccessTokenConverter jwtAccessTokenConverter() {
-//        //AccessToken转换器-定义token的生成方式,这里使用jwt
-//        JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
-//        //对称加密只需要加入key等其他信息
-//        jwtAccessTokenConverter.setSigningKey("corn");
-//        return jwtAccessTokenConverter;
-//    }
+
+
+    @Override
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+        //配置授权服务端点
+        endpoints.accessTokenConverter(jwtAccessTokenConverter());
+        endpoints.tokenStore(jwtTokenStore());
+    }
+
+    @Bean
+    public JwtTokenStore jwtTokenStore() {
+        //定义tokenStore类型
+        return new JwtTokenStore(jwtAccessTokenConverter());
+    }
+
+    @Bean
+    public JwtAccessTokenConverter jwtAccessTokenConverter() {
+        //AccessToken转换器-定义token的生成方式,这里使用jwt
+        JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
+        //对称加密只需要加入key等其他信息
+        jwtAccessTokenConverter.setSigningKey("corn");
+        return jwtAccessTokenConverter;
+    }
 }

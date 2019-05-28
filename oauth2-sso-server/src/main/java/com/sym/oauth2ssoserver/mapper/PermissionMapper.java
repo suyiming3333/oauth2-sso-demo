@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sym.oauth2ssoserver.entity.SysPermission;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * @author suyiming3333@gmail.com
  * @version V1.0
@@ -15,5 +17,5 @@ import org.apache.ibatis.annotations.Param;
  * @date 2019/5/16 23:32
  */
 public interface PermissionMapper extends BaseMapper<SysPermission> {
-
+    List<SysPermission> getSysPermissionByUserId(Integer userId);
 }

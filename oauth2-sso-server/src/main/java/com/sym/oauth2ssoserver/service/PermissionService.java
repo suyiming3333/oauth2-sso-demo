@@ -3,6 +3,8 @@ package com.sym.oauth2ssoserver.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.sym.oauth2ssoserver.entity.SysPermission;
 import com.sym.oauth2ssoserver.entity.SysUser;
+import com.sym.oauth2ssoserver.mapper.PermissionMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,5 +19,8 @@ import java.util.List;
  */
 
 public interface PermissionService extends IService<SysPermission> {
+
     List<SysPermission> findByUserId(Integer userId);
+
+    List<SysPermission> getSysPermissionByUserId(Integer userId);
 }

@@ -6,6 +6,8 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/oauth2-sso-server/pom.xml" />
+        <option value="$PROJECT_DIR$/oauth2-sso-member-client/pom.xml" />
+        <option value="$PROJECT_DIR$/oauth2-sso-order-client/pom.xml" />
       </list>
     </option>
   </component>

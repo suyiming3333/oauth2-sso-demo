@@ -7,6 +7,10 @@ spring:
   thymeleaf:
     suffix: .html
     prefix: classpath:/templates/
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*Mapper.xml
+
 logging:
   config: classpath:logback.xml
   level:

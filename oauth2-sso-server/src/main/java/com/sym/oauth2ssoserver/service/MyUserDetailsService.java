@@ -48,9 +48,7 @@ public class MyUserDetailsService implements UserDetailsService {
             log.warn("用户{}不存在", username);
             throw new UsernameNotFoundException(username);
         }
-        QueryWrapper wrapper =new QueryWrapper<SysUser>();
-        wrapper.eq("id",sysUser.getId());
-        List<SysPermission> permissionList = permissionServiceImpl.list(wrapper);
+        List<SysPermission> permissionList = permissionServiceImpl.getSysPermissionByUserId(sysUser.getId());
         List<SimpleGrantedAuthority> authorityList = new ArrayList<>();
         if (!CollectionUtils.isEmpty(permissionList)) {
             for (SysPermission sysPermission : permissionList) {
