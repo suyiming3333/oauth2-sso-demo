@@ -28,6 +28,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private MyUserDetailsService myUserDetailsService;
 
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        // 设置默认的加密方式
+        return new BCryptPasswordEncoder();
+    }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(myUserDetailsService).passwordEncoder(passwordEncoder());
@@ -35,29 +41,35 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/assets/**", "/css/**", "/images/**");
+        /**否则客户端访问会报401**/
+        web.ignoring().antMatchers("/oauth/check_token");
     }
+//
+//    @Override
+//    @Bean
+//    public AuthenticationManager authenticationManagerBean() throws Exception {
+//        return super.authenticationManagerBean();
+//    }
+//
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.requestMatchers()
+//                .antMatchers("/login", "/check/token", "/oauth/authorize", "/oauth/token")
+//                .and()
+//                .authorizeRequests()
+//                .antMatchers("/check/token")
+//                .permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//                .formLogin().permitAll();
+//        http.formLogin()
+//                .loginPage("/login")
+//                .and()
+//                .authorizeRequests()
+//                .antMatchers("/login").permitAll()
+//                .anyRequest()
+//                .authenticated()
+//                .and().csrf().disable().cors();
+//    }
 
-    @Override
-    @Bean
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin()
-                .loginPage("/login")
-                .and()
-                .authorizeRequests()
-                .antMatchers("/login").permitAll()
-                .anyRequest()
-                .authenticated()
-                .and().csrf().disable().cors();
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
 }

@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="oauth2-sso-member-client" />
         <module name="oauth2-sso-order-client" />
+        <module name="oauth2-sso-resource-server" />
         <module name="oauth2-sso-server" />
       </profile>
     </annotationProcessing>

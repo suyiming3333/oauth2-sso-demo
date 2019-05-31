@@ -1,6 +1,8 @@
 package com.sym.oauth2ssoserver.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -10,10 +12,13 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationManager;
+import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
+import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
@@ -32,11 +37,37 @@ import javax.sql.DataSource;
 @EnableAuthorizationServer//开启认证服务
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
-    @Autowired
-    private DataSource dataSource;
+    @Bean
+    @Primary
+    @ConfigurationProperties(prefix = "spring.datasource")
+    public DataSource dataSource() {
+        // 配置数据源（注意，我使用的是 HikariCP 连接池），以上注解是指定数据源，否则会有冲突
+        return DataSourceBuilder.create().build();
+    }
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    @Bean
+    public TokenStore tokenStore() {
+        // 基于 JDBC 实现，令牌保存到数据库
+        return new JdbcTokenStore(dataSource());
+    }
+
+    @Bean
+    public ClientDetailsService jdbcClientDetails() {
+        // 基于 JDBC 实现，需要事先在数据库配置客户端信息
+        return new JdbcClientDetailsService(dataSource());
+    }
+
+    @Override
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+        // 设置令牌
+        endpoints.tokenStore(tokenStore());
+    }
+
+    @Override
+    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+        // 读取客户端配置
+        clients.withClientDetails(jdbcClientDetails());
+    }
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
@@ -47,18 +78,18 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 //        security.tokenKeyAccess("permitAll()");
     }
 
-    @Override
-    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        /**配置定义客户端注册信息 从数据库获取**/
-        clients.jdbc(dataSource);
-        //内存定义客户端注册信息
-/*        clients.inMemory()
-                .withClient("my-client-1")
-                .secret("12345678")
-                .authorizedGrantTypes("authorization_code", "refresh_token")
-                .scopes("all")
-                .redirectUris("http://www.baidu.com");  */
-    }
+//    @Override
+//    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+//        /**配置定义客户端注册信息 从数据库获取**/
+//        clients.jdbc(dataSource());
+//        //内存定义客户端注册信息
+///*        clients.inMemory()
+//                .withClient("my-client-1")
+//                .secret("12345678")
+//                .authorizedGrantTypes("authorization_code", "refresh_token")
+//                .scopes("all")
+//                .redirectUris("http://www.baidu.com");  */
+//    }
 
 //    @Override
 //    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
@@ -84,25 +115,25 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 //    }
 
 
-    @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        //配置授权服务端点
-        endpoints.accessTokenConverter(jwtAccessTokenConverter());
-        endpoints.tokenStore(jwtTokenStore());
-    }
-
-    @Bean
-    public JwtTokenStore jwtTokenStore() {
-        //定义tokenStore类型
-        return new JwtTokenStore(jwtAccessTokenConverter());
-    }
-
-    @Bean
-    public JwtAccessTokenConverter jwtAccessTokenConverter() {
-        //AccessToken转换器-定义token的生成方式,这里使用jwt
-        JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
-        //对称加密只需要加入key等其他信息
-        jwtAccessTokenConverter.setSigningKey("corn");
-        return jwtAccessTokenConverter;
-    }
+//    @Override
+//    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+//        //配置授权服务端点
+//        endpoints.accessTokenConverter(jwtAccessTokenConverter());
+//        endpoints.tokenStore(jwtTokenStore());
+//    }
+//
+//    @Bean
+//    public JwtTokenStore jwtTokenStore() {
+//        //定义tokenStore类型
+//        return new JwtTokenStore(jwtAccessTokenConverter());
+//    }
+//
+//    @Bean
+//    public JwtAccessTokenConverter jwtAccessTokenConverter() {
+//        //AccessToken转换器-定义token的生成方式,这里使用jwt
+//        JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
+//        //对称加密只需要加入key等其他信息
+//        jwtAccessTokenConverter.setSigningKey("corn");
+//        return jwtAccessTokenConverter;
+//    }
 }
