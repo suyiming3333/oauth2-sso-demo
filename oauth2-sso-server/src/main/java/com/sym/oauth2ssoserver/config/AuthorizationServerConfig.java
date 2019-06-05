@@ -1,5 +1,6 @@
 package com.sym.oauth2ssoserver.config;
 
+import com.sym.oauth2ssoserver.service.JwtTokenEnhancer;
 import com.sym.oauth2ssoserver.service.MyTokenEnhancer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -55,15 +56,42 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 
     /**token增强，可自定义token**/
-    @Bean
-    public TokenEnhancer tokenEnhancer(){
-        return new MyTokenEnhancer();
-    }
+//    @Bean
+//    public TokenEnhancer tokenEnhancer(){
+//        return new MyTokenEnhancer();
+//    }
 
     @Bean
-    public TokenStore tokenStore() {
-        // 基于 JDBC 实现，令牌保存到数据库
-        return new JdbcTokenStore(dataSource());
+    public TokenEnhancer jwtTokenEnhancer(){
+        return new JwtTokenEnhancer();
+    }
+
+//    @Bean
+//    public TokenStore tokenStore() {
+//        // 基于 JDBC 实现，令牌保存到数据库
+//        return new JdbcTokenStore(dataSource());
+//    }
+
+    /**
+     * jwtToken 对比于普通token，省去了持久化一步
+     * **/
+    @Bean
+    public JwtTokenStore jwtTokenStore() {
+        //定义tokenStore类型
+        return new JwtTokenStore(jwtAccessTokenConverter());
+    }
+
+    /**
+     * jwtToken转换器
+     * @return
+     */
+    @Bean
+    public JwtAccessTokenConverter jwtAccessTokenConverter() {
+        //AccessToken转换器-定义token的生成方式,这里使用jwt
+        JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
+        //对称加密只需要加入key等其他信息
+        jwtAccessTokenConverter.setSigningKey("corn");
+        return jwtAccessTokenConverter;
     }
 
     @Bean
@@ -76,12 +104,16 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         TokenEnhancerChain enhancerChain = new TokenEnhancerChain();
         List<TokenEnhancer> enhancerList = new ArrayList<>();
-        enhancerList.add(tokenEnhancer());
+        enhancerList.add(jwtTokenEnhancer());
+        enhancerList.add(jwtAccessTokenConverter());
         enhancerChain.setTokenEnhancers(enhancerList);
         // 设置令牌
-        endpoints.tokenStore(tokenStore());
+        endpoints.tokenStore(jwtTokenStore());
+        endpoints.accessTokenConverter(jwtAccessTokenConverter());
+        /**设置enhancerList**/
         endpoints.tokenEnhancer(enhancerChain);
-        endpoints.tokenServices(defaultTokenServices());
+        /**注入defaultTokenService后 jwtToken不生效**/
+//        endpoints.tokenServices(defaultTokenServices());
     }
 
     @Override
@@ -129,12 +161,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Bean
     public DefaultTokenServices defaultTokenServices(){
         DefaultTokenServices tokenServices = new DefaultTokenServices();
-        tokenServices.setTokenStore(tokenStore());//设置token的存储方式
+        tokenServices.setTokenStore(jwtTokenStore());//设置token的存储方式
         tokenServices.setSupportRefreshToken(true);
         tokenServices.setReuseRefreshToken(true);
         tokenServices.setAuthenticationManager(authenticationManager);
         tokenServices.setClientDetailsService(jdbcClientDetails());
-        tokenServices.setTokenEnhancer(tokenEnhancer());
+//        tokenServices.setTokenEnhancer(tokenEnhancer());
         tokenServices.setAccessTokenValiditySeconds(60*60*12); // token有效期自定义设置，默认12小时
         tokenServices.setRefreshTokenValiditySeconds(60 * 60 * 24 * 7);//默认30天，这里修改
         return tokenServices;
@@ -148,18 +180,5 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 //        endpoints.tokenStore(jwtTokenStore());
 //    }
 //
-//    @Bean
-//    public JwtTokenStore jwtTokenStore() {
-//        //定义tokenStore类型
-//        return new JwtTokenStore(jwtAccessTokenConverter());
-//    }
-//
-//    @Bean
-//    public JwtAccessTokenConverter jwtAccessTokenConverter() {
-//        //AccessToken转换器-定义token的生成方式,这里使用jwt
-//        JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
-//        //对称加密只需要加入key等其他信息
-//        jwtAccessTokenConverter.setSigningKey("corn");
-//        return jwtAccessTokenConverter;
-//    }
+
 }
