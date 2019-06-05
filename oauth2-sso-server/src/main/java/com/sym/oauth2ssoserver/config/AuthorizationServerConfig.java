@@ -1,5 +1,6 @@
 package com.sym.oauth2ssoserver.config;
 
+import com.sym.oauth2ssoserver.service.MyTokenEnhancer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -16,6 +17,8 @@ import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationManager;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
+import org.springframework.security.oauth2.provider.token.TokenEnhancer;
+import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
@@ -23,6 +26,8 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author suyiming3333@gmail.com
@@ -37,12 +42,22 @@ import javax.sql.DataSource;
 @EnableAuthorizationServer//开启认证服务
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
     @Bean
     @Primary
     @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource dataSource() {
         // 配置数据源（注意，我使用的是 HikariCP 连接池），以上注解是指定数据源，否则会有冲突
         return DataSourceBuilder.create().build();
+    }
+
+
+    /**token增强，可自定义token**/
+    @Bean
+    public TokenEnhancer tokenEnhancer(){
+        return new MyTokenEnhancer();
     }
 
     @Bean
@@ -59,8 +74,14 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+        TokenEnhancerChain enhancerChain = new TokenEnhancerChain();
+        List<TokenEnhancer> enhancerList = new ArrayList<>();
+        enhancerList.add(tokenEnhancer());
+        enhancerChain.setTokenEnhancers(enhancerList);
         // 设置令牌
         endpoints.tokenStore(tokenStore());
+        endpoints.tokenEnhancer(enhancerChain);
+        endpoints.tokenServices(defaultTokenServices());
     }
 
     @Override
@@ -102,17 +123,22 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 //        return new InMemoryTokenStore();
 //    }
 //
-//    @Primary
-//    @Bean
-//    public DefaultTokenServices defaultTokenServices(){
-//        DefaultTokenServices tokenServices = new DefaultTokenServices();
-//        tokenServices.setTokenStore(tokenStore());
-//        tokenServices.setSupportRefreshToken(true);
-//        //tokenServices.setClientDetailsService(clientDetails());
-//        tokenServices.setAccessTokenValiditySeconds(60*60*12); // token有效期自定义设置，默认12小时
-//        tokenServices.setRefreshTokenValiditySeconds(60 * 60 * 24 * 7);//默认30天，这里修改
-//        return tokenServices;
-//    }
+
+    /**用来对token进行相关设置，比如设置token有效时长**/
+    @Primary
+    @Bean
+    public DefaultTokenServices defaultTokenServices(){
+        DefaultTokenServices tokenServices = new DefaultTokenServices();
+        tokenServices.setTokenStore(tokenStore());//设置token的存储方式
+        tokenServices.setSupportRefreshToken(true);
+        tokenServices.setReuseRefreshToken(true);
+        tokenServices.setAuthenticationManager(authenticationManager);
+        tokenServices.setClientDetailsService(jdbcClientDetails());
+        tokenServices.setTokenEnhancer(tokenEnhancer());
+        tokenServices.setAccessTokenValiditySeconds(60*60*12); // token有效期自定义设置，默认12小时
+        tokenServices.setRefreshTokenValiditySeconds(60 * 60 * 24 * 7);//默认30天，这里修改
+        return tokenServices;
+    }
 
 
 //    @Override
