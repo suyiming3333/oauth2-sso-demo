@@ -15,8 +15,12 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
+import org.springframework.security.oauth2.provider.approval.ApprovalStore;
+import org.springframework.security.oauth2.provider.approval.JdbcApprovalStore;
 import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationManager;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
+import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
+import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
@@ -61,38 +65,58 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 //        return new MyTokenEnhancer();
 //    }
 
+//    @Bean
+//    public TokenEnhancer jwtTokenEnhancer(){
+//        return new JwtTokenEnhancer();
+//    }
+
+
+    /**
+     * 授权记录保存
+     * @return
+     */
     @Bean
-    public TokenEnhancer jwtTokenEnhancer(){
-        return new JwtTokenEnhancer();
+    public ApprovalStore approvalStore() {
+        return new JdbcApprovalStore(dataSource());
     }
 
-//    @Bean
-//    public TokenStore tokenStore() {
-//        // 基于 JDBC 实现，令牌保存到数据库
-//        return new JdbcTokenStore(dataSource());
-//    }
+    /**
+     * 授权码保存
+     * @return
+     */
+    @Bean
+    public AuthorizationCodeServices authorizationCodeServices() {
+        return new JdbcAuthorizationCodeServices(dataSource());
+    }
+
+
+    @Bean
+    public TokenStore jdbcTokenStore() {
+        // 基于 JDBC 实现，令牌保存到数据库
+        return new JdbcTokenStore(dataSource());
+    }
 
     /**
      * jwtToken 对比于普通token，省去了持久化一步
      * **/
-    @Bean
-    public JwtTokenStore jwtTokenStore() {
-        //定义tokenStore类型
-        return new JwtTokenStore(jwtAccessTokenConverter());
-    }
+//    @Bean
+//    public JwtTokenStore jwtTokenStore() {
+//        //定义tokenStore类型
+//        return new JwtTokenStore(jwtAccessTokenConverter());
+//    }
 
     /**
      * jwtToken转换器
      * @return
      */
-    @Bean
-    public JwtAccessTokenConverter jwtAccessTokenConverter() {
-        //AccessToken转换器-定义token的生成方式,这里使用jwt
-        JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
-        //对称加密只需要加入key等其他信息
-        jwtAccessTokenConverter.setSigningKey("corn");
-        return jwtAccessTokenConverter;
-    }
+//    @Bean
+//    public JwtAccessTokenConverter jwtAccessTokenConverter() {
+//        //AccessToken转换器-定义token的生成方式,这里使用jwt
+//        JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
+//        //对称加密只需要加入key等其他信息
+//        jwtAccessTokenConverter.setSigningKey("corn");
+//        return jwtAccessTokenConverter;
+//    }
 
     @Bean
     public ClientDetailsService jdbcClientDetails() {
@@ -102,18 +126,20 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        TokenEnhancerChain enhancerChain = new TokenEnhancerChain();
-        List<TokenEnhancer> enhancerList = new ArrayList<>();
-        enhancerList.add(jwtTokenEnhancer());
-        enhancerList.add(jwtAccessTokenConverter());
-        enhancerChain.setTokenEnhancers(enhancerList);
+//        TokenEnhancerChain enhancerChain = new TokenEnhancerChain();
+//        List<TokenEnhancer> enhancerList = new ArrayList<>();
+//        enhancerList.add(jwtTokenEnhancer());
+//        enhancerList.add(jwtAccessTokenConverter());
+//        enhancerChain.setTokenEnhancers(enhancerList);
         // 设置令牌
-        endpoints.tokenStore(jwtTokenStore());
-        endpoints.accessTokenConverter(jwtAccessTokenConverter());
+        endpoints.tokenStore(jdbcTokenStore());
+        endpoints.approvalStore(approvalStore());
+        endpoints.authorizationCodeServices(authorizationCodeServices());
+//        endpoints.accessTokenConverter(jwtAccessTokenConverter());
         /**设置enhancerList**/
-        endpoints.tokenEnhancer(enhancerChain);
+//        endpoints.tokenEnhancer(enhancerChain);
         /**注入defaultTokenService后 jwtToken不生效**/
-//        endpoints.tokenServices(defaultTokenServices());
+        endpoints.tokenServices(defaultTokenServices());
     }
 
     @Override
@@ -161,7 +187,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Bean
     public DefaultTokenServices defaultTokenServices(){
         DefaultTokenServices tokenServices = new DefaultTokenServices();
-        tokenServices.setTokenStore(jwtTokenStore());//设置token的存储方式
+        tokenServices.setTokenStore(jdbcTokenStore());//设置token的存储方式
         tokenServices.setSupportRefreshToken(true);
         tokenServices.setReuseRefreshToken(true);
         tokenServices.setAuthenticationManager(authenticationManager);
