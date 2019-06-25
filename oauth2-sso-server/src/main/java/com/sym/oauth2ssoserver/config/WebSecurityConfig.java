@@ -2,10 +2,12 @@ package com.sym.oauth2ssoserver.config;
 
 import com.sym.oauth2ssoserver.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -35,6 +37,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+    @Autowired
+    private AuthenticationProvider authenticationProvider;
+
+    /**前置身份校验**/
+    @Autowired
+    @Qualifier("preAuthProvider")
+    private AuthenticationProvider preAuthProvider;
+
     @Primary
     @Bean
     public AuthenticationManager authenticationManager() throws Exception {
@@ -44,6 +54,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(myUserDetailsService).passwordEncoder(passwordEncoder());
+        /**处理refresh_token是重新校验用户信息**/
+        auth.authenticationProvider(authenticationProvider).authenticationProvider(preAuthProvider);
+
     }
 
     @Override

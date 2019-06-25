@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d0de64a-d7c7-4cf8-9261-3b0f4ed24633" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/CustomPreAuthProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/service/CustomPreAuthUserDetailsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth2-sso-order-client/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2-sso-order-client/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth2-sso-resource-server/src/main/java/com/sym/oauth2ssoresourceserver/config/ResourceServerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2-sso-resource-server/src/main/java/com/sym/oauth2ssoresourceserver/config/ResourceServerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/AuthorizationServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/AuthorizationServerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/WebSecurityConfig.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -21,6 +23,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/myssowithoauth$Oauth2SsoMemberClientApplication.ic" NAME="Oauth2SsoMemberClientApplication Coverage Results" MODIFIED="1560174379593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/myssowithoauth$Oauth2SsoResourceServerApplication.ic" NAME="Oauth2SsoResourceServerApplication Coverage Results" MODIFIED="1560179394719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="441151359">
@@ -28,21 +31,24 @@
         <counts>
           <entry key="project.closed" value="2" />
           <entry key="project.open.time.14" value="2" />
+          <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.36" value="3" />
           <entry key="project.open.time.40" value="2" />
           <entry key="project.open.time.43" value="1" />
           <entry key="project.open.time.45" value="1" />
+          <entry key="project.open.time.49" value="1" />
           <entry key="project.open.time.52" value="1" />
-          <entry key="project.open.time.56" value="1" />
+          <entry key="project.open.time.56" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="13" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="application" value="1" />
-          <entry key="java" value="1477" />
+          <entry key="java" value="1849" />
           <entry key="sql" value="15" />
           <entry key="xml" value="52" />
           <entry key="yml" value="128" />
@@ -50,7 +56,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1477" />
+          <entry key="JAVA" value="1849" />
           <entry key="SQL" value="16" />
           <entry key="XML" value="51" />
           <entry key="YAML" value="129" />
@@ -63,13 +69,13 @@
           <entry key="cmd" value="1" />
           <entry key="css" value="1" />
           <entry key="ftl" value="1" />
-          <entry key="html" value="3" />
-          <entry key="java" value="92" />
+          <entry key="html" value="4" />
+          <entry key="java" value="112" />
           <entry key="js" value="2" />
-          <entry key="properties" value="1" />
-          <entry key="sql" value="1" />
-          <entry key="xml" value="18" />
-          <entry key="yml" value="18" />
+          <entry key="properties" value="3" />
+          <entry key="sql" value="3" />
+          <entry key="xml" value="20" />
+          <entry key="yml" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -77,14 +83,14 @@
           <entry key="CLASS" value="53" />
           <entry key="CSS" value="1" />
           <entry key="FTL" value="1" />
-          <entry key="HTML" value="3" />
-          <entry key="JAVA" value="92" />
+          <entry key="HTML" value="4" />
+          <entry key="JAVA" value="112" />
           <entry key="JavaScript" value="2" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Properties" value="1" />
-          <entry key="SQL" value="1" />
-          <entry key="XML" value="18" />
-          <entry key="YAML" value="19" />
+          <entry key="Properties" value="3" />
+          <entry key="SQL" value="3" />
+          <entry key="XML" value="20" />
+          <entry key="YAML" value="24" />
         </counts>
       </usages-collector>
     </session>
@@ -95,7 +101,16 @@
         <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/Oauth2SsoServerApplication.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+              <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/service/MyUserDetailsService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="55">
+              <caret line="28" column="6" lean-forward="true" selection-start-line="28" selection-end-line="29" />
             </state>
           </provider>
         </entry>
@@ -104,73 +119,67 @@
         <entry file="file://$PROJECT_DIR$/oauth2-sso-resource-server/src/main/java/com/sym/oauth2ssoresourceserver/Oauth2SsoResourceServerApplication.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="6" column="18" lean-forward="true" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+              <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/WebSecurityConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/AuthorizationServerConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-817">
+              <caret line="138" selection-start-line="138" selection-start-column="2" selection-end-line="139" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/CustomPreAuthProvider.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#465#466#0" expanded="true" />
+                <element signature="e#488#489#0" expanded="true" />
+                <element signature="e#532#533#0" expanded="true" />
+                <element signature="e#604#605#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/oauth2-sso-order-client/src/main/resources/application.yml">
+        <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/service/CustomPreAuthUserDetailsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="57" lean-forward="true" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oauth2-sso-member-client/src/main/java/com/sym/oauth2ssomemberclient/config/WebSecurityConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oauth2-sso-resource-server/src/main/resources/application.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oauth2-sso-order-client/src/main/java/com/sym/oauth2ssoorderclient/config/WebSecurityConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oauth2-sso-order-client/src/main/java/com/sym/oauth2ssoorderclient/controller/OrderController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="459">
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
               <folding>
-                <element signature="e#551#552#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oauth2-sso-order-client/src/main/java/com/sym/oauth2ssoorderclient/Oauth2SsoOrderClientApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/resources/sql/oauth_client_details.sql">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oauth2-sso-member-client/src/main/resources/application.yml">
+        <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" selection-start-line="21" selection-end-line="22" selection-end-column="54" />
+            <state relative-caret-position="85">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -178,8 +187,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/oauth2-sso-resource-server/src/main/java/com/sym/oauth2ssoresourceserver/config/ResourceServerConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="31" column="60" lean-forward="true" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
+            <state relative-caret-position="255">
+              <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -214,6 +223,8 @@
       <find>disableLocalConfigureAuthenticationBldr</find>
       <find>templates</find>
       <find>clientDetails</find>
+      <find>8081</find>
+      <find>AuthenticationManagerBuilder</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -225,10 +236,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/oauth2-sso-server/src/main/resources/sql/oauth_client_details.sql" />
-        <option value="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/MyUserDetailsService.java" />
-        <option value="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/entity/SysRole.java" />
         <option value="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/entity/SysRolePermission.java" />
         <option value="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/entity/asd.java" />
         <option value="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/entity/SysUser.java" />
@@ -269,13 +276,17 @@
         <option value="$PROJECT_DIR$/oauth2-sso-resource-server/src/main/java/com/sym/oauth2ssoresourceserver/controller/ResourceController.java" />
         <option value="$PROJECT_DIR$/oauth2-sso-resource-server/src/main/resources/application" />
         <option value="$PROJECT_DIR$/oauth2-sso-resource-server/pom.xml" />
-        <option value="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/WebSecurityConfig.java" />
         <option value="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/service/MyTokenEnhancer.java" />
         <option value="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/service/JwtTokenEnhancer.java" />
-        <option value="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/AuthorizationServerConfig.java" />
-        <option value="$PROJECT_DIR$/oauth2-sso-resource-server/src/main/java/com/sym/oauth2ssoresourceserver/config/ResourceServerConfiguration.java" />
-        <option value="$PROJECT_DIR$/oauth2-sso-resource-server/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/oauth2-sso-order-client/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/oauth2-sso-resource-server/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/oauth2-sso-resource-server/src/main/java/com/sym/oauth2ssoresourceserver/config/ResourceServerConfiguration.java" />
+        <option value="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/service/MyPreAuthProvider.java" />
+        <option value="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/asd.java" />
+        <option value="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/service/asd.java" />
+        <option value="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/service/CustomPreAuthUserDetailsService.java" />
+        <option value="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/AuthorizationServerConfig.java" />
+        <option value="$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/WebSecurityConfig.java" />
       </list>
     </option>
   </component>
@@ -310,8 +321,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-122" />
+    <option name="y" value="101" />
     <option name="width" value="1346" />
     <option name="height" value="698" />
   </component>
@@ -321,7 +332,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -329,10 +339,66 @@
               <item name="myssowithoauth" type="b2602c69:ProjectViewProjectNode" />
               <item name="myssowithoauth" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="myssowithoauth" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myssowithoauth" type="462c0819:PsiDirectoryNode" />
+              <item name="oauth2-sso-server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myssowithoauth" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myssowithoauth" type="462c0819:PsiDirectoryNode" />
+              <item name="oauth2-sso-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myssowithoauth" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myssowithoauth" type="462c0819:PsiDirectoryNode" />
+              <item name="oauth2-sso-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myssowithoauth" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myssowithoauth" type="462c0819:PsiDirectoryNode" />
+              <item name="oauth2-sso-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myssowithoauth" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myssowithoauth" type="462c0819:PsiDirectoryNode" />
+              <item name="oauth2-sso-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="oauth2ssoserver" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myssowithoauth" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myssowithoauth" type="462c0819:PsiDirectoryNode" />
+              <item name="oauth2-sso-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="oauth2ssoserver" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myssowithoauth" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myssowithoauth" type="462c0819:PsiDirectoryNode" />
+              <item name="oauth2-sso-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="oauth2ssoserver" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -343,7 +409,7 @@
     <property name="SearchEverywhereHistoryKey" value="userde&#9;FILE&#9;file://D:/code/myssowithoauth/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/service/MyUserDetailsService.java&#10;login&#9;PSI&#9;JAVA://org.springframework.security.web.server.ui.LoginPageGeneratingWebFilter&#10;TokenEndpo&#9;FILE&#9;jar://D:/maven_repo/org/springframework/security/oauth/spring-security-oauth2/2.3.4.RELEASE/spring-security-oauth2-2.3.4.RELEASE.jar!/org/springframework/security/oauth2/provider/client/ClientCredentialsTokenEndpointFilter.class&#10;DefaultTokenServices.class&#9;FILE&#9;jar://D:/maven_repo/org/springframework/security/oauth/spring-security-oauth2/2.3.4.RELEASE/spring-security-oauth2-2.3.4.RELEASE.jar!/org/springframework/security/oauth2/provider/token/DefaultTokenServices.class" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560177448899" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561476880167" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -376,7 +442,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Oauth2SsoMemberClientApplication">
+  <component name="RunManager" selected="Spring Boot.Oauth2SsoServerApplication">
     <configuration name="Auth2SsoServer2Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="auth2-sso-server2" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.sym.auth2ssoserver2.Auth2SsoServer2Application" />
@@ -442,18 +508,22 @@
       <workItem from="1559309990924" duration="1684000" />
       <workItem from="1559570256838" duration="5679000" />
       <workItem from="1559742476343" duration="3477000" />
-      <workItem from="1560172590218" duration="4545000" />
+      <workItem from="1560172590218" duration="6340000" />
+      <workItem from="1560947494149" duration="1365000" />
+      <workItem from="1561167957452" duration="1820000" />
+      <workItem from="1561303930415" duration="1750000" />
+      <workItem from="1561471071734" duration="5120000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65081000" />
+    <option name="totallyTimeSpent" value="76931000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.804" visible="true" weight="0.26399395" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.804" visible="true" weight="0.26096824" />
       <window_info id="Structure" order="1" sideWeight="0.196" side_tool="true" weight="0.3850227" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -463,19 +533,18 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32903227" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.566129" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.032258064" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.22419354" />
+      <window_info anchor="bottom" id="Spring" order="3" weight="0.32903227" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49924356" visible="true" weight="0.09354839" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.21129033" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" weight="0.533871" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.67741936" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
-      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32980332" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -486,6 +555,7 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" />
+      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32980332" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,7 +575,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/AuthorizationServerConfig.java</url>
-          <line>168</line>
+          <line>201</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
@@ -521,80 +591,16 @@
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/service/CustomPreAuthUserDetailsService.java</url>
+          <line>47</line>
+          <properties />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://D:/maven_repo/org/springframework/security/spring-security-config/5.1.5.RELEASE/spring-security-config-5.1.5.RELEASE.jar!/org/springframework/security/config/annotation/authentication/builders/AuthenticationManagerBuilder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="107" column="113" selection-start-line="107" selection-start-column="113" selection-end-line="107" selection-end-column="113" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/maven_repo/org/springframework/security/spring-security-core/5.1.5.RELEASE/spring-security-core-5.1.5.RELEASE.jar!/org/springframework/security/authentication/dao/DaoAuthenticationProvider.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/maven_repo/org/springframework/security/spring-security-core/5.1.5.RELEASE/spring-security-core-5.1.5.RELEASE.jar!/org/springframework/security/authentication/dao/AbstractUserDetailsAuthenticationProvider.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="102" selection-start-line="102" selection-end-line="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/maven_repo/org/springframework/security/spring-security-core/5.1.5.RELEASE/spring-security-core-5.1.5.RELEASE.jar!/org/springframework/security/authentication/ProviderManager.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1547">
-          <caret line="109" selection-start-line="109" selection-end-line="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/maven_repo/org/springframework/security/spring-security-core/5.1.5.RELEASE/spring-security-core-5.1.5.RELEASE.jar!/org/springframework/security/core/userdetails/User.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="84" selection-start-line="84" selection-end-line="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/maven_repo/org/springframework/security/spring-security-web/5.1.5.RELEASE/spring-security-web-5.1.5.RELEASE.jar!/org/springframework/security/web/authentication/AbstractAuthenticationProcessingFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/maven_repo/org/springframework/security/spring-security-web/5.1.5.RELEASE/spring-security-web-5.1.5.RELEASE.jar!/org/springframework/security/web/FilterChainProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2414">
-          <caret line="172" selection-start-line="172" selection-end-line="172" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/maven_repo/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE.jar!/org/springframework/web/filter/CorsFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/maven_repo/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE.jar!/org/springframework/web/filter/OncePerRequestFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/maven_repo/org/springframework/security/spring-security-web/5.1.5.RELEASE/spring-security-web-5.1.5.RELEASE.jar!/org/springframework/security/web/authentication/logout/LogoutFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/maven_repo/org/springframework/security/spring-security-web/5.1.5.RELEASE/spring-security-web-5.1.5.RELEASE.jar!/org/springframework/security/web/header/HeaderWriterFilter.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
@@ -654,13 +660,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/service/MyUserDetailsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/oauth2-sso-member-client/mvnw.cmd">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -716,27 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oauth2-sso-order-client/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="21" selection-start-line="21" selection-end-line="80" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oauth2-sso-resource-server/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="64" selection-start-line="64" selection-end-line="68" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/maven_repo/org/springframework/security/oauth/spring-security-oauth2/2.3.4.RELEASE/spring-security-oauth2-2.3.4.RELEASE.jar!/org/springframework/security/oauth2/provider/token/DefaultTokenServices.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4437">
@@ -748,23 +726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/WebSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/AuthorizationServerConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="112" column="25" selection-start-line="112" selection-start-column="25" selection-end-line="112" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -782,23 +743,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
           <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oauth2-sso-resource-server/src/main/java/com/sym/oauth2ssoresourceserver/controller/ResourceController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oauth2-sso-member-client/src/main/java/com/sym/oauth2ssomemberclient/Oauth2SsoMemberClientApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -806,12 +750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
           <caret line="44" column="31" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="31" />
-          <folding>
-            <element signature="e#1077#1078#0" expanded="true" />
-            <element signature="e#1114#1115#0" expanded="true" />
-            <element signature="e#1388#1389#0" expanded="true" />
-            <element signature="e#1419#1420#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -822,72 +760,193 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/Oauth2SsoServerApplication.java">
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-order-client/src/main/java/com/sym/oauth2ssoorderclient/controller/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/resources/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-member-client/src/main/java/com/sym/oauth2ssomemberclient/Oauth2SsoMemberClientApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/oauth2-sso-member-client/src/main/java/com/sym/oauth2ssomemberclient/config/WebSecurityConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="336">
+          <caret line="27" selection-start-line="27" selection-end-line="32" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oauth2-sso-resource-server/src/main/java/com/sym/oauth2ssoresourceserver/Oauth2SsoResourceServerApplication.java">
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-order-client/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="18" lean-forward="true" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        <state relative-caret-position="-357">
+          <caret line="40" column="55" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="55" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oauth2-sso-resource-server/src/main/java/com/sym/oauth2ssoresourceserver/config/ResourceServerConfiguration.java">
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-resource-server/src/main/java/com/sym/oauth2ssoresourceserver/controller/ResourceController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="31" column="60" lean-forward="true" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="391">
+          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oauth2-sso-resource-server/src/main/resources/application.yml">
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-order-client/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="13" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oauth2-sso-order-client/src/main/java/com/sym/oauth2ssoorderclient/controller/OrderController.java">
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-resource-server/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#551#552#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1088">
+          <caret line="64" selection-start-line="64" selection-end-line="68" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-order-client/src/main/java/com/sym/oauth2ssoorderclient/config/WebSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/oauth2-sso-order-client/src/main/java/com/sym/oauth2ssoorderclient/Oauth2SsoOrderClientApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oauth2-sso-order-client/src/main/java/com/sym/oauth2ssoorderclient/config/WebSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/oauth2-sso-order-client/src/main/resources/application.yml">
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-resource-server/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="57" lean-forward="true" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/target/classes/application.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/target/classes/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/resources/sql/sso0528.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-resource-server/src/main/java/com/sym/oauth2ssoresourceserver/config/ResourceServerConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/resources/sql/oauth_client_details.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-resource-server/src/main/java/com/sym/oauth2ssoresourceserver/Oauth2SsoResourceServerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/service/CustomPreAuthProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#585#586#0" expanded="true" />
+            <element signature="e#608#609#0" expanded="true" />
+            <element signature="e#652#653#0" expanded="true" />
+            <element signature="e#724#725#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/service/CustomPreAuthUserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/service/MyUserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="28" column="6" lean-forward="true" selection-start-line="28" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/Oauth2SsoServerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/CustomPreAuthProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#465#466#0" expanded="true" />
+            <element signature="e#488#489#0" expanded="true" />
+            <element signature="e#532#533#0" expanded="true" />
+            <element signature="e#604#605#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/AuthorizationServerConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-817">
+          <caret line="138" selection-start-line="138" selection-start-column="2" selection-end-line="139" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/config/WebSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth2-sso-server/src/main/java/com/sym/oauth2ssoserver/service/CustomPreAuthUserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

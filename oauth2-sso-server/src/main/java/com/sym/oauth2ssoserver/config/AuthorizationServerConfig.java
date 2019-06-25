@@ -2,6 +2,7 @@ package com.sym.oauth2ssoserver.config;
 
 import com.sym.oauth2ssoserver.service.JwtTokenEnhancer;
 import com.sym.oauth2ssoserver.service.MyTokenEnhancer;
+import com.sym.oauth2ssoserver.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -49,6 +50,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Autowired
     private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private MyUserDetailsService myUserDetailsService;
 
     @Bean
     @Primary
@@ -132,6 +136,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 //        enhancerList.add(jwtAccessTokenConverter());
 //        enhancerChain.setTokenEnhancers(enhancerList);
         // 设置令牌
+//        endpoints.authenticationManager(authenticationManager);
+//        endpoints.userDetailsService(myUserDetailsService);
         endpoints.tokenStore(jdbcTokenStore());
         endpoints.approvalStore(approvalStore());
         endpoints.authorizationCodeServices(authorizationCodeServices());
@@ -190,6 +196,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         tokenServices.setTokenStore(jdbcTokenStore());//设置token的存储方式
         tokenServices.setSupportRefreshToken(true);
         tokenServices.setReuseRefreshToken(true);
+        /**注释以下行也能解决refresh_token问题 但是不推荐**/
+        /**相关链接https://stackoverflow.com/questions/34716636/no-authenticationprovider-found-on-refresh-token-spring-oauth2-java-config**/
         tokenServices.setAuthenticationManager(authenticationManager);
         tokenServices.setClientDetailsService(jdbcClientDetails());
 //        tokenServices.setTokenEnhancer(tokenEnhancer());
@@ -197,6 +205,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         tokenServices.setRefreshTokenValiditySeconds(60 * 60 * 24 * 7);//默认30天，这里修改
         return tokenServices;
     }
+
+
 
 
 //    @Override
